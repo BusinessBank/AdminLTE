@@ -1,8 +1,8 @@
 @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
 /*!
- *   AdminLTE v2.0.
+ *   AdminLTE v2.0.5
  *   Author: Almsaeed Studio
- *   Website: Almsaeed Studio <http://almsaeedstudio.com>
+ *	 Website: Almsaeed Studio <http://almsaeedstudio.com>
  *   License: Open source - MIT
  *           Please visit http://opensource.org/licenses/MIT for more information
 !*/
@@ -84,6 +84,13 @@ body {
   .sidebar-collapse .right-side,
   .sidebar-collapse .main-footer {
     margin-left: 0;
+  }
+}
+@media (min-width: 768px) {
+  .sidebar-reduce .content-wrapper,
+  .sidebar-reduce .right-side,
+  .sidebar-reduce .main-footer {
+    margin-left: 77px;
   }
 }
 @media (max-width: 767px) {
@@ -260,6 +267,22 @@ a:focus {
 .main-header .navbar .nav > li.user > a > .ion {
   margin-right: 5px;
 }
+.main-header .sidebar-reduce-toggle {
+  float: left;
+  background-color: transparent;
+  background-image: none;
+  padding: 15px 15px;
+  font-family: fontAwesome;
+}
+.main-header .sidebar-reduce-toggle:before {
+  content: "\f0c9";
+}
+.main-header .sidebar-reduce-toggle:hover {
+  color: #fff;
+}
+.main-header .sidebar-reduce-toggle .icon-bar {
+  display: none;
+}
 .main-header .navbar .nav > li > a > .label {
   position: absolute;
   top: 9px;
@@ -412,6 +435,15 @@ a:focus {
     -ms-transform: translate(-230px, 0);
     -o-transform: translate(-230px, 0);
     transform: translate(-230px, 0);
+  }
+}
+@media (min-width: 768px) {
+  .sidebar-reduce .main-sidebar,
+  .sidebar-reduce .left-side {
+    -webkit-transform: translate(-163px, 0);
+    -ms-transform: translate(-163px, 0);
+    -o-transform: translate(-163px, 0);
+    transform: translate(-163px, 0);
   }
 }
 @media (max-width: 767px) {

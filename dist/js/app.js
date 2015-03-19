@@ -43,6 +43,7 @@ $.AdminLTE.options = {
   navbarMenuHeight: "200px", //The height of the inner menu
   //Sidebar push menu toggle button selector
   sidebarToggleSelector: "[data-toggle='offcanvas']",
+  sidebarReduceToggleSelector: "[data-reduce-toggle='reducecanvas']",
   //Activate sidebar push menu
   sidebarPushMenu: true,
   //Activate sidebar slimscroll if the fixed layout is set (requires SlimScroll Plugin)
@@ -146,6 +147,10 @@ $(function () {
   //Activate sidebar push menu
   if (o.sidebarPushMenu) {
     $.AdminLTE.pushMenu(o.sidebarToggleSelector);
+  }
+
+  if (o.sidebarPushMenu) {
+    $.AdminLTE.reduceMenu(o.sidebarReduceToggleSelector);
   }
 
   //Activate Bootstrap tooltip
@@ -279,6 +284,45 @@ function _init() {
         if ($("body").hasClass('sidebar-open')) {
           $("body").removeClass('sidebar-open');
           $("body").removeClass('sidebar-collapse')
+        } else {
+          $("body").addClass('sidebar-open');
+        }
+      }
+    });
+
+    $(".content-wrapper").click(function () {
+      //Enable hide menu when clicking on the content-wrapper on small screens
+      if ($(window).width() <= (screenSizes.sm - 1) && $("body").hasClass("sidebar-open")) {
+        $("body").removeClass('sidebar-open');
+      }
+    });
+
+  };
+
+    /* ReduceMenu()
+   * ==========
+   * Adds the reduce menu functionality to the sidebar.
+   *
+   * @type Function
+   * @usage: $.AdminLTE.reduceMenu("[data-reduce-toggle='reducecanvas']")
+   */
+  $.AdminLTE.reduceMenu = function (toggleBtn) {
+    //Get the screen sizes
+    var screenSizes = this.options.screenSizes;
+
+    //Enable sidebar toggle
+    $(toggleBtn).click(function (e) {
+      e.preventDefault();
+
+      //Enable sidebar reduce menu
+      if ($(window).width() > (screenSizes.sm - 1)) {
+        $("body").toggleClass('sidebar-reduce');
+      }
+      //Handle sidebar push menu for small screens
+      else {
+        if ($("body").hasClass('sidebar-open')) {
+          $("body").removeClass('sidebar-open');
+          $("body").removeClass('sidebar-reduce')
         } else {
           $("body").addClass('sidebar-open');
         }

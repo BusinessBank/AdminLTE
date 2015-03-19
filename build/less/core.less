@@ -62,6 +62,13 @@ body {
       margin-left: 0;
     }
   }
+  //When reducing the sidebar on large screens
+  .sidebar-reduce & {
+    @media (min-width: @screen-sm) {
+      margin-left: @margin-left-when-reduced;
+    }
+  }
+
   //When opening the sidebar on small screens
   .sidebar-open & {
     @media (max-width: @screen-xs-max) {
