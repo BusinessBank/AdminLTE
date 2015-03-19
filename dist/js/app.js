@@ -317,12 +317,15 @@ function _init() {
       //Enable sidebar reduce menu
       if ($(window).width() > (screenSizes.sm - 1)) {
         $("body").toggleClass('sidebar-reduce');
+        $(".sidebar-menu  li  a").toggleClass('show-only-icon');
+        $(".sidebar-menu  li  a  span").toggleClass('hide-menu-text');
       }
       //Handle sidebar push menu for small screens
       else {
         if ($("body").hasClass('sidebar-open')) {
           $("body").removeClass('sidebar-open');
-          $("body").removeClass('sidebar-reduce')
+          $("body").removeClass('sidebar-reduce');
+
         } else {
           $("body").addClass('sidebar-open');
         }
