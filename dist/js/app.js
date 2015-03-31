@@ -251,9 +251,9 @@ function _init() {
           $(".sidebar").slimScroll({destroy: true}).height("auto");
           //Add slimscroll
           $(".sidebar").slimscroll({
-            height: ($(window).height() - $(".main-header").height()) + "px",
+            height: ($(window).height() - $(".main-header").height() - 50 + "px"),
             color: "rgba(0,0,0,0.2)",
-            size: "3px"
+            size: 0
           });
         }
       }
